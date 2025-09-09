@@ -27,4 +27,18 @@ public class MyController {
     public String handleRetry() {
         return myService.callWithRetry();
     }
+
+    @GetMapping("/call/ratelimiter")
+    public String handleRateLimiter() {
+        return myService.callWithRateLimiter();
+    }
+
+    @GetMapping("/call/bulkhead")
+    public String handleBulkhead() {
+        try {
+            return myService.callWithBulkhead().get();
+        } catch (Exception e) {
+            return "Error: " + e.getMessage();
+        }
+    }
 }
