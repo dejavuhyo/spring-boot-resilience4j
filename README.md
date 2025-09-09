@@ -1,7 +1,7 @@
 # Spring Boot Resilience4j
 
 ## 1. 설명
-Spring Boot에서 Resilience4j를 이용하여 CircuitBreaker, TimeLimiter 및 Retry 예제이다. 포트는 8080을 사용한다.
+Spring Boot에서 Resilience4j를 이용하여 CircuitBreaker, TimeLimiter, Retry, RateLimiter 및 Bulkhead 예제이다. 포트는 8080을 사용한다.
 
 ## 2. 개발환경
 
@@ -35,5 +35,19 @@ Spring Boot에서 Resilience4j를 이용하여 CircuitBreaker, TimeLimiter 및 R
 예외를 감지하고, 설정된 maxAttempts (3회)에 따라 자동으로 재시도를 수행한다. 500 에러는 재시도를 유발하기 위한 테스트용 트리거 역할이다.
 
 * URL: `http://localhost:8080/call/retry`
+
+* Method: `GET`
+
+### 4) RateLimiter
+요청 제한 기능을 적용한다. 요청 횟수가 제한을 초과하면 `fallbackForRateLimiter` 메서드가 호출되어 대체 응답을 반환한다.
+
+* URL: `http://localhost:8080/call/ratelimiter`
+
+* Method: `GET`
+
+### 5) Bulkhead
+시스템의 한 부분이 실패하더라도 전체가 마비되지 않도록 자원(스레드 풀)을 격리한다.
+
+* URL: `http://localhost:8080/call/bulkhead`
 
 * Method: `GET`
