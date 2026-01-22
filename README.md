@@ -18,7 +18,7 @@ Spring Boot에서 Resilience4j를 이용하여 CircuitBreaker, TimeLimiter, Retr
 ## 3. 실행
 
 ### 1) CircuitBreaker
-반복해서 호출한다. 처음에는 "Success!"와 "Fallback response..."가 번갈아 나오다가, 실패 횟수가 임계값을 넘으면 서킷이 열리면서 "Fallback response..."만 계속 반환된다.
+URL을 반복해서 호출한다. 처음에는 "Success!"와 "Fallback response..."가 번갈아 나오다가, 실패 횟수가 임계값을 넘으면 서킷이 열리면서 "Fallback response..."만 계속 반환된다.
 
 * URL: `http://localhost:8080/call/failure`
 
